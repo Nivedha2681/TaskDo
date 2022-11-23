@@ -125,6 +125,7 @@ function ProfHome() {
                       </p>
                     </div>
                   </div>
+                  <input type="file" className="text h-9 w-28 bg-blue-500 text-white active:bg-blue-600 font-bold  text-md   rounded shadow hover:shadow-lg outline-none focus:outline-none   ease-linear transition-all duration-150 " style={{background:"none", marginTop:"45px"}}/>
                   <div className="btn-container flex justify-center items-center p-4">
                     <button
                       className="text h-9 w-28 bg-blue-500 text-white active:bg-blue-600 font-bold  text-md   rounded shadow hover:shadow-lg outline-none focus:outline-none   ease-linear transition-all duration-150 "
