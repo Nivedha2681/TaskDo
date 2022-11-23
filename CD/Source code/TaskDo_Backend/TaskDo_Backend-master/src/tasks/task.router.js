@@ -1,5 +1,6 @@
 const express = require("express");
 const TaskRouter = express.Router();
+const {upload} = require('../../server.js')
 const {
   saveTask,
   isHod,
@@ -13,8 +14,8 @@ const {
 TaskRouter.post("/saveTask", saveTask);
 TaskRouter.get("/isHod", isHod);
 TaskRouter.get("/myTask", myTask);
-TaskRouter.get("/allProf", allProf);
-TaskRouter.get("/submitTask/:id", submitMyTask);
+TaskRouter.get("/allProf", allProf);    
+TaskRouter.post("/submitTask/:id", submitMyTask);
 TaskRouter.get("/departmentTask", departmentTask);
 TaskRouter.put("/rateMyTask/:id", rateMyTask);
 

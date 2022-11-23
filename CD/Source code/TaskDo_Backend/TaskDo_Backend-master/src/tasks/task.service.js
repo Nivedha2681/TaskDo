@@ -1,5 +1,6 @@
 const Task = require("../models/tasks.models");
 const User = require("../models/users.models");
+const {upload} = require('../../server.js')
 
 // checking the login user
 const isHod = async (req, res) => {
@@ -19,7 +20,6 @@ const saveTask = async (req, res) => {
   const assignedDate = req.body.assignedDate;
   const expectedDate = req.body.expectedDate;
   const submittedDate = req.body.submittedDate;
-
   const newTask = Task({
     assignedUser,
     title,
@@ -53,10 +53,23 @@ const allProf = async (req, res) => {
   res.send(allProf);
 };
 
-const submitMyTask = async (req, res) => {
+const submitMyTask = async (req, res,next) => {
   const id = req.params.id;
   const completeTask = await Task.findByIdAndUpdate(id, { isCompleted: true });
-  res.send(completeTask);
+  // upload(req,res,(err)=>{
+  //   if(err){
+  //     console.log(err)
+  //   }
+  //   else{
+  //     const completeTask = Task.findByIdAndUpdate(id, {file:{
+  //       data: req.file.filename,
+  //       contentType:"file/pdf"
+  //     },
+  //        isCompleted: true });
+  //     res.send(completeTask)
+  //   }
+  // })
+  res.send(completeTask)
 };
 
 const rateMyTask = async (req, res) => {
